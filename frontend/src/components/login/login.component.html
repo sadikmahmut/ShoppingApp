@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Enter username</label>
+      <input type="text" id="username" name="username" formControlName="username" class="form-control" required>
+      <div *ngIf="submitted && loginForm.get('username')?.hasError('required')" class="text-danger">Username cannot be empty.</div>
+      <div *ngIf="invalidUsernameError" class="text-danger">{{ invalidUsernameError }}</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Enter password</label>
+      <input type="password" id="password" name="password" formControlName="password" class="form-control" required>
+      <div *ngIf="submitted && loginForm.get('password')?.hasError('required')" class="text-danger">Password cannot be empty.</div>
+      <div *ngIf="invalidPasswordError" class="text-danger">{{ invalidPasswordError }}</div>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin: 20px 0 20px 0;">Submit</button>
+  </form>
+  <p>Don't you have an account yet? <a [routerLink]="['/Register']">Get one!</a></p>
+</div>

@@ -1,0 +1,52 @@
+<div class="container" *ngIf="isAdmin">
+    <h2>Orders</h2>
+    <table class="table">
+        <thead>
+            <tr>
+            <th>#</th>
+            <th>User</th>
+            <th>Product</th>
+            <th>Date</th>
+            <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ order.Username }}</td>
+                <td>{{ order.ProductName }}</td>
+                <td>{{ order.Date }}</td>
+                <td>{{ order.Status }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container" *ngIf="!isAdmin">
+    <h2>My Orders</h2>
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 30px;" *ngFor="let order of orders; let i = index">
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar>
+                        <img src="../../assets/img/user-avatar.png" alt="Avatar" class="avatar-image">
+                    </div>
+                    <div style="margin-left: 10px;">
+                        <mat-card-title>{{ order.Name }}</mat-card-title>
+                        <mat-card-subtitle>{{ order.Price }}$</mat-card-subtitle>
+                    </div>
+                </mat-card-header>
+                <img mat-card-image src="../../assets/img/shoe-image.jpg" alt="Card Image">
+                <mat-card-content>
+                    {{ order.Description }}
+                </mat-card-content>
+                <hr class="line-divider">
+                <mat-card-footer style="padding: 0 0 15px 15px;">
+                    Date: {{ order.Date }}
+                    <hr class="line-divider2">
+                    Status: {{ order.Status }}
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>

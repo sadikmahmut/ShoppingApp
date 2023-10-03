@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Products</h2>
+    <button class="add-product-button" routerLink="/AddProduct" *ngIf="userStatus?.isAdmin">
+        Add Product
+    </button>
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 30px;" *ngFor="let product of products; let i = index">
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar>
+                        <img src="../../assets/img/user-avatar.png" alt="Avatar" class="avatar-image">
+                    </div>
+                    <div style="margin-left: 10px;">
+                        <mat-card-title>{{ product.Name }}</mat-card-title>
+                        <mat-card-subtitle>{{ product.Price }}$</mat-card-subtitle>
+                    </div>
+                </mat-card-header>
+                <img mat-card-image src="../../assets/img/shoe-image.jpg" alt="Card Image">
+                <mat-card-content>
+                    {{ product.Description }}
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-button [routerLink]="'/DetailProduct/' + product.Id" *ngIf="!userStatus?.isAdmin">Detail</button>
+                    <button mat-button (click)="orderProduct(product.Id)" *ngIf="!userStatus?.isAdmin">Order</button>
+                    <button mat-button [routerLink]="'/EditProduct/' + product.Id" *ngIf="userStatus?.isAdmin">Edit</button>
+                    <button mat-button (click)="deleteProduct(product.Id)" *ngIf="userStatus?.isAdmin">Delete</button>
+                </mat-card-actions>
+                <!--<mat-card-footer>
+                    Your Card Footer
+                </mat-card-footer>-->
+            </mat-card>
+        </div>
+    </div>
+</div>

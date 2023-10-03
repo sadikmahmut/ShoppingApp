@@ -1,0 +1,25 @@
+.add-product-button {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding to your liking */
+    background-color: #007bff; /* Button background color */
+    color: #ffffff; /* Text color */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.add-product-button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+    color: #ffffff; /* Change text color on hover */
+  }
+
+.avatar-image {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+}
+
+.product-image {
+    width: 200px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+}

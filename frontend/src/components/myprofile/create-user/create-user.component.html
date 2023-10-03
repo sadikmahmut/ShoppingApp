@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Register</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName" class="required-label">First Name</label>
+      <input type="text" id="firstName" name="firstName" formControlName="firstName" class="form-control" required>
+      <div *ngIf="submitted && formFields['firstName'].hasError('required')" class="text-danger">First Name is required.</div>
+    </div>
+    <div class="form-group">
+      <label for="lastName" class="required-label">Last Name</label>
+      <input type="text" id="lastName" name="lastName" formControlName="lastName" class="form-control" required>
+      <div *ngIf="submitted && formFields['lastName'].hasError('required')" class="text-danger">Last Name is required.</div>
+    </div>
+    <div class="form-group">
+      <label for="username" class="required-label">Username</label>
+      <input type="text" id="username" name="username" formControlName="username" class="form-control" required>
+      <div *ngIf="submitted && formFields['username'].hasError('required')" class="text-danger">Username is required.</div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="required-label">Email</label>
+      <input type="email" id="email" name="email" formControlName="email" class="form-control" required>
+      <div *ngIf="submitted && formFields['email'].hasError('required')" class="text-danger">Email is required.</div>
+      <div *ngIf="submitted && formFields['email'].hasError('email')" class="text-danger">Invalid email format.</div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" formControlName="phone" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" formControlName="address" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="password" class="required-label">Password</label>
+      <input type="password" id="password" name="password" formControlName="password" class="form-control" required>
+      <div *ngIf="submitted && formFields['password'].hasError('required')" class="text-danger">Password is required.</div>
+    </div>
+    <div class="form-group">
+      <label for="reEnterPassword" class="required-label">Re-enter Password</label>
+      <input type="password" id="reEnterPassword" name="reEnterPassword" formControlName="reEnterPassword" class="form-control" required>
+      <div *ngIf="submitted && formFields['reEnterPassword'].hasError('required')" class="text-danger">Re-enter Password is required.</div>
+      <div *ngIf="submitted && formFields['reEnterPassword'].value !== formFields['password'].value" class="text-danger">Passwords do not match.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

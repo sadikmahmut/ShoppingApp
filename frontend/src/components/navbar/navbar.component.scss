@@ -1,0 +1,22 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+mat-button {
+  text-transform: none; /* Prevent uppercase text */
+  text-decoration: none; /* Remove underline */
+  background-color: transparent; /* Remove background color */
+  border: none; /* Remove border */
+  cursor: pointer;
+  padding: 0; /* Remove padding if needed */
+  margin: 0; /* Remove margin if needed */
+  color: white; /* Text color */
+  font-weight: bold; /* Bold text */
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+/* Style for active link */
+mat-button.active {
+  background-color: #007bff; /* Background color for the active link */
+  color: white; /* Text color for the active link */
+}

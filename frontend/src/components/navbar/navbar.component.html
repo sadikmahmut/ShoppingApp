@@ -1,0 +1,28 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Shopping App</span>
+    <span class="example-spacer"></span>
+    <button mat-button routerLink="/">
+        Home
+    </button>
+    <button mat-button routerLink="/Products" *ngIf="isLoggedIn">
+        Products
+    </button>
+    <button mat-button routerLink="/MyProfile" *ngIf="isLoggedIn">
+        Profile
+    </button>
+    <button mat-button routerLink="/Orders" *ngIf="isLoggedIn">
+        Orders
+    </button>
+    <!-- Conditionally display either the "Login" or "Logout" button -->
+    <button mat-button *ngIf="!isLoggedIn; else loggedIn" routerLink="/Login">
+        Login
+    </button>
+    <ng-template #loggedIn>
+        <button mat-button (click)="logout()">
+            Logout
+        </button>
+    </ng-template>
+</mat-toolbar>
