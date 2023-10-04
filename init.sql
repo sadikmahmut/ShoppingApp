@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS public."Orders"
     "Id" uuid NOT NULL,
     "ProductId" uuid,
     "UserId" uuid,
-    "Date" date,
+    "Date" timestamp,
     "Status" character varying COLLATE pg_catalog."default",
     CONSTRAINT "Orders_pkey" PRIMARY KEY ("Id")
 );
@@ -15,11 +15,11 @@ CREATE TABLE IF NOT EXISTS public."Products"
     "Price" double precision,
     "Description" character varying COLLATE pg_catalog."default",
     "Active" boolean,
-    "CreatedDate" date,
+    "CreatedDate" timestamp,
     "CreatedBy" uuid,
-    "ModifiedDate" date,
+    "ModifiedDate" timestamp,
     "ModifiedBy" uuid,
-    "DeletedDate" date,
+    "DeletedDate" timestamp,
     "DeletedBy" uuid,
     CONSTRAINT "Products_pkey" PRIMARY KEY ("Id")
 );
@@ -35,11 +35,11 @@ CREATE TABLE IF NOT EXISTS public."Users"
     "Phone" character varying COLLATE pg_catalog."default",
     "Address" character varying COLLATE pg_catalog."default",
     "Active" boolean,
-    "CreatedDate" date,
+    "CreatedDate" timestamp,
     "CreatedBy" uuid,
-    "ModifiedDate" date,
+    "ModifiedDate" timestamp,
     "ModifiedBy" uuid,
-    "DeletedDate" date,
+    "DeletedDate" timestamp,
     "DeletedBy" uuid,
     "Role" character varying COLLATE pg_catalog."default",
     CONSTRAINT "Users_pkey" PRIMARY KEY ("Id")

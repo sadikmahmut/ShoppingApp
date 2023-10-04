@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "08071b94-dd9d-46d5-99c3-9e9d66ef6e6e",
+		"name": "ShoppingApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17677933"
+	},
+	"item": [
+		{
+			"name": "Register a New User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"username\": \"johndoe\",\r\n  \"email\": \"john@example.com\",\r\n  \"phone\": \"+1234567890\",\r\n  \"address\": \"123 Main St\",\r\n  \"password\": \"securepassword\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Register/registerUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Register",
+						"registerUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"johndoe\",\r\n  \"password\": \"securepassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Login/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Login",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve User Information (Requires Authentication)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Product Information (Requires Authentication)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1MzhiODRlZi03ODcwLTRlMGEtOWRhNC03YmY3NDg1ZmI4OWYiLCJpYXQiOjE2OTY0NDM0MTQsImV4cCI6MTY5NjQ0NzAxNH0.E8Z91RzCCA-muzOHmrfOx3C_QFy9AGCuAqGHFAxxwFo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/Product/getAllProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Product",
+						"getAllProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a New Product (Requires Authentication)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1MzhiODRlZi03ODcwLTRlMGEtOWRhNC03YmY3NDg1ZmI4OWYiLCJpYXQiOjE2OTY0NDM0MTQsImV4cCI6MTY5NjQ0NzAxNH0.E8Z91RzCCA-muzOHmrfOx3C_QFy9AGCuAqGHFAxxwFo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"Product Name\",\r\n  \"Description\": \"Product Description\",\r\n  \"Price\": 19.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Product/createProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Product",
+						"createProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Product by ID (Requires Authentication)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1MzhiODRlZi03ODcwLTRlMGEtOWRhNC03YmY3NDg1ZmI4OWYiLCJpYXQiOjE2OTY0NDM0MTQsImV4cCI6MTY5NjQ0NzAxNH0.E8Z91RzCCA-muzOHmrfOx3C_QFy9AGCuAqGHFAxxwFo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/Product/getProduct/{d47f7c24-9bf0-4045-b9d3-0d2abe630a22}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Product",
+						"getProduct",
+						"{d47f7c24-9bf0-4045-b9d3-0d2abe630a22}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Product by ID (Requires Authentication)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1MzhiODRlZi03ODcwLTRlMGEtOWRhNC03YmY3NDg1ZmI4OWYiLCJpYXQiOjE2OTY0NDM0MTQsImV4cCI6MTY5NjQ0NzAxNH0.E8Z91RzCCA-muzOHmrfOx3C_QFy9AGCuAqGHFAxxwFo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"Updated Product Name\",\r\n  \"Description\": \"Updated Product Description\",\r\n  \"Price\": 24.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Product/updateProduct/{2d2a3a26-cfeb-4fba-b04f-77e1923f9395}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Product",
+						"updateProduct",
+						"{2d2a3a26-cfeb-4fba-b04f-77e1923f9395}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Product by ID (Requires Authentication)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Place an Order (Requires Authentication)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve All Orders (Requires Authentication)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Orders by User ID (Requires Authentication)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1MzhiODRlZi03ODcwLTRlMGEtOWRhNC03YmY3NDg1ZmI4OWYiLCJpYXQiOjE2OTY0NDQ0MTYsImV4cCI6MTY5NjQ0ODAxNn0.uJXAqmtziI7ClECZXhYVW3W5qNm74Bp3Ca3y6Y37NJY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/Order/getOrdersByUserId/{d47f7c24-9bf0-4045-b9d3-0d2abe630a22}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Order",
+						"getOrdersByUserId",
+						"{d47f7c24-9bf0-4045-b9d3-0d2abe630a22}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
