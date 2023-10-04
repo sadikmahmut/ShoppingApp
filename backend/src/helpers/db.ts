@@ -13,7 +13,7 @@ import * as pg from 'pg';
 // Create a PostgreSQL database connection pool with the specified configuration
 const pool = new pg.Pool({
   user: 'postgres',
-  host: 'localhost',
+  host: 'postgres',
   database: 'ShoppingAppDb',
   password: '12345',
   port: 5432,

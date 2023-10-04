@@ -1,0 +1,33 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: shoppingapp-postgres
+    environment:
+      POSTGRES_DB: ShoppingAppDb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - "5432:5432" 
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build:
+      context: ./backend
+    container_name: shoppingapp-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    links:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: shoppingapp-frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
